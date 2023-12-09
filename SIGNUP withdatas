@@ -1,1 +1,100 @@
 
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNUP</title>
+<style>
+h3 {text-align: center;}
+div {text-align: center;}
+/* button{text-align: center;} */
+
+</style>
+</head>
+<body>
+    <h3>Milestone</h3>
+    <form action="http://localhost:2000/Signup" method="POST"> 
+        <div class="form-row">
+            <div class="col-7">
+                <label for="fname"></label>
+        <input type="text" name="First_Name" class="form-control" id="exampleInput"  size="35" aria-describedby="text" placeholder="First Name">
+    </div>
+        <br> 
+        <div class="form-row">
+    <div class="col">
+        <label for="lname"></label>
+        <input type="text" name="Last_Name" class="form-control" id="exampleInput" size="35" aria-describedby="text" placeholder="Last Name">
+    </div>
+    
+        <br> 
+     <div class="form-group row">
+        <label for="mail"> </label>
+        <input type="text" name="E_Mail" class="form-control" id="exampleInput" size="75" aria-describedby="text" placeholder="E Mail">
+    </div>
+    <br> 
+      <div class="form-group row">
+        <label for="pwd"> </label>
+        <input type="password" name="Password" class="form-control" id="exampleInput"  size="75" aria-describedby="password" placeholder="Password"> 
+    </div>
+    <br> 
+     <div class="form-group row">
+        <label for="cpwd"> </label>
+        <input type="password" name="Confirm_Password" class="form-control" id="exampleInput" size="75" aria-describedby="password" placeholder="Confirm Password">
+    </div>
+    <br> 
+       <input type="checkbox" name="checkbox">
+       <label for="checkbox"> I accept the Terms of Use & Privacy Policy</label>
+       <br> <br>
+       <br> <br>
+       <button type="submit" style text-align="center"> SIGNUP </button>
+    </form>
+    <script src="signup.js"></script>
+</body>
+</html>
+
+js:
+const express = require('express')
+const mongoose = require('mongoose')
+mongoose.set('strictQuery', false);
+const url = 'mongodb://localhost:27017/Signup';
+const bodyParser = require('body-parser')
+const app = express()
+const port = 2000
+const detailsmodel = require('./detailsmodule')
+mongoose.connect(url).then(()=>console.log("connect"))
+app.listen(port,()=>console.log('Server is connected'))
+
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
+app.get('/Signup', (req,res)=>{
+    console.log('hi');
+    res.send(details);
+})
+let details;
+app.post('/Signup',async(req,res) =>{
+    let details=new detailsmodel({
+        First_Name: req.body.First_Name,
+        Last_Name: req.body.Last_Name,
+        E_Mail: req.body.E_Mail,
+        Password: req.body.Password,
+        Confirm_Password: req.body.Confirm_Password
+    })
+    console.log(details);
+    res.send(details);
+    details.save()
+})
+
+
+mongodb:
+const mongoose = require('mongoose');
+const signup = new mongoose.Schema({
+    First_Name: String,
+        Last_Name: String,
+        E_Mail: String,
+        Password: String,
+        Confirm_Password: String
+})
+const detailsmodel = mongoose.model('signup',signup)
+module.exports = detailsmodel;
