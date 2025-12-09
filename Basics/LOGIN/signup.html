@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNUP</title>
+<style>
+h3 {text-align: center;}
+div {text-align: center;}
+
+</style>
+</head>
+<body>
+    <h3>Milestone</h3>
+    <form action="http://localhost:2000/Signup" method="POST"> 
+        <div class="form-row">
+            <div class="col-7">
+                <label for="fname"></label>
+        <input type="text" name="First_Name" class="form-control" id="exampleInput"  size="35" aria-describedby="text" placeholder="First Name">
+    </div>
+        <br> 
+        <div class="form-row">
+    <div class="col">
+        <label for="lname"></label>
+        <input type="text" name="Last_Name" class="form-control" id="exampleInput" size="35" aria-describedby="text" placeholder="Last Name">
+    </div>
+    
+        <br> 
+     <div class="form-group row">
+        <label for="mail"> </label>
+        <input type="text" name="E_Mail" class="form-control" id="exampleInput" size="75" aria-describedby="text" placeholder="E Mail">
+    </div>
+    <br> 
+      <div class="form-group row">
+        <label for="pwd"> </label>
+        <input type="password" name="Password" class="form-control" id="exampleInput"  size="75" aria-describedby="password" placeholder="Password"> 
+    </div>
+    <br> 
+     <div class="form-group row">
+        <label for="cpwd"> </label>
+        <input type="password" name="Confirm_Password" class="form-control" id="exampleInput" size="75" aria-describedby="password" placeholder="Confirm Password">
+    </div>
+    <br> 
+       <input type="checkbox" name="checkbox">
+       <label for="checkbox"> I accept the Terms of Use & Privacy Policy</label>
+       <br> <br>
+       <button type="submit" style text-align="center"> SIGNUP </button>
+
+       <p>Already have an account? <a href="/signin.html">SIGNIN</a></p>
+
+       
+    </form>
+    
+    <script src="signup.js"></script>
+    <script src="signin.js"></script>
+    <script src="forgetpassword.js"></script>
+</body>
+</html>

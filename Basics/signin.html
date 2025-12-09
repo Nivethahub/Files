@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNIN</title>
+</head>
+<body>
+    
+    <h3>Milestone</h3>
+    <form action="http://localhost:2000/Signin" method="POST">
+        <div class="form-group row">
+            <label for="mail"> </label>
+            <input type="text" name="E_Mail" class="form-control" id="exampleInput" aria-describedby="text" placeholder="E Mail">
+        </div>
+        <br> 
+          <div class="form-group row">
+            <label for="pwd"> </label>
+            <input type="password" name="Password" class="form-control" id="exampleInput"  aria-describedby="password" placeholder="Password"> 
+        </div>
+        <br> 
+        <button type="submit" class="btn btn-primary">SignIn</button>
+
+        <p>Forget your password? <a href="/forgetpassword.html">FORGET PASSWORD</a></p>
+    </form>
+    <script src="signin.js"></script>
+</body>
+</html>
