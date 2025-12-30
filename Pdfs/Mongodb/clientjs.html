@@ -1,0 +1,73 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/clientjs@0.1.11/dist/client.min.js"></script>
+    <script>
+      window.onload = function () {
+        console.log("hi");
+        const client = new ClientJS();
+        const fingerprint = client.getFingerprint();
+        const browserData = client.getBrowser();
+        const userAgent = client.getUserAgent();
+        // const screen = client.getScreen();
+        console.log("screen: ", screen);
+        console.log("userAgent: ", userAgent);
+        console.log("browserData: ", browserData);
+        console.log("Fingerprint:", fingerprint);
+      };
+    </script>
+  </head>
+  <body>
+    <h1>ClientJS Fingerprinting</h1>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+    <h2>Login</h2>
+    <input id="username" placeholder="Username" />
+    <input id="password" placeholder="Password" type="password" />
+    <button onclick="login()">Login</button>
+    <script src="https://cdn.jsdelivr.net/npm/clientjs@0.1.11/dist/client.min.js"></script>
+
+    <script>
+      // function getBrowserFingerprint() {
+      //   return btoa(navigator.userAgent + screen.width + screen.height);
+      // }
+      function getClientBrowser() {
+        const client = new ClientJS();
+        const fingerprint = client.getFingerprint();
+        console.log("fingerprint: ", fingerprint);
+        // const browserData = client.getBrowser();
+        // const userAgent = client.getUserAgent();
+        return {
+          fingerprint,
+          // browserData,
+          // userAgent,
+        };
+      }
+
+      async function login() {
+        const fingerprint = getClientBrowser();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        const res = await fetch("http://localhost:9000/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username,
+            password,
+            clientFingerprint: fingerprint,
+          }),
+        });
+
+        const data = await res.json();
+        alert(data.message);
+      }
+    </script>
+  </body>
+</html>

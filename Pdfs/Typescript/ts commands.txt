@@ -1,0 +1,27 @@
+File setup:
+
+	npm init -y
+
+Install express and mongoose:
+
+	npm install express mongoose
+
+Install TypeScript and Node.js types:
+
+	npm install typescript ts-node @types/node @types/express --save-dev
+
+Install typescript config file:
+
+	npx tsc --init
+
+Nodemon:
+
+npm install nodemon ts-node --save-dev
+
+
+package.json:
+{
+  "scripts": {
+    "start": "nodemon --exec ts-node file.ts"
+  }
+}
