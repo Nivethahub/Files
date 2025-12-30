@@ -1,0 +1,60 @@
+Fakeclients
+cofolios
+framer
+behance
+
+Commends of cmd:
+
+NAVIGATING FILE SYSTEM
+print the working directory:
+--- pwd
+make directory:
+--- mkdir new-directory
+list of a contents of a directory
+--- ls desktop
+change directory:
+--- cd some-directory
+--- cd ..
+
+filesystem structure
+create new file
+touch newdata.txt
+
+clear terminal
+clear
+autocomplete the line
+tab
+
+VIEWING AND CHANGING THE FILE
+copy the files or directories:
+cp source destination
+cp (copied file/data) (destination for the copied data/file) 
+eg:
+$ cp file1 file1_copy
+$ cp file1 file2 destination_folder
+
+move:
+mv source_file destination_folder
+sourcefile - first argument
+destination folder - second argument
+eg:
+$ mv index.html website/
+
+Remove:
+deleted files or directories
+-r flag deletes a directory and all of its files and directories
+rm 
+eg:
+rm -r bad_selfies
+
+list command options:
+ls -a
+$ ls -l
+$ ls -t
+-a: lists all contents, including hidden files and directories.
+-l: lists all contents, in long format.
+-t: lists all contents, by the time they were last modified.
+
+Display
+displays the contents of one or more files to the terminal
+cat poem.txt
